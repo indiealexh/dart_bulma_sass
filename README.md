@@ -11,6 +11,7 @@ dev_dependencies:
   sass_builder: ^1.1.2
 ```
 
+Create a SCSS file and import bulma and edit any variable you need:
 ```scss
 // 1. Import the initial variables
 @import "packages/bulma_sass/scss/utilities/initial-variables";
