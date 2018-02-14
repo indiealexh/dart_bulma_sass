@@ -2,6 +2,10 @@
 
 [Bulma](https://bulma.io/) is a **modern SCSS framework** based on [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes).
 
+## Example
+
+You can find basic example usage of the package over at [bulma_sass_example](https://github.com/indiealexh/dart_bulma_sass_example)
+
 ## Usage
 
 Add Sass and Builder runner to the project pubspec.yaml:
@@ -14,8 +18,8 @@ dev_dependencies:
 Create a SCSS file and import bulma and edit any variable you need:
 ```scss
 // 1. Import the initial variables
-@import "packages/bulma_sass/scss/utilities/initial-variables";
-@import "packages/bulma_sass/scss/utilities/functions";
+@import "package:bulma_sass/scss/utilities/initial-variables";
+@import "package:bulma_sass/scss/utilities/functions";
 
 // 2. Set your own initial variables
 // Update blue
@@ -44,7 +48,7 @@ $github: #333;
 $github-invert: findColorInvert($github);
 
 // 5. Add new color variables to the color map.
-@import "packages/bulma_sass/scss/utilities/derived-variables";
+@import "package:bulma_sass/scss/utilities/derived-variables";
 $addColors: (
   "twitter":($twitter, $twitter-invert),
   "linkedin": ($linkedin, $linkedin-invert),
@@ -53,7 +57,7 @@ $addColors: (
 $colors: map-merge($colors, $addColors);
 
 // 6. Import the rest of Bulma
-@import "packages/bulma_sass/scss/bulma";
+@import "package:bulma_sass/scss/bulma";
 ```
 
 ## Documentation
