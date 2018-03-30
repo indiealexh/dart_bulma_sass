@@ -60,6 +60,61 @@ $colors: map-merge($colors, $addColors);
 @import "package:bulma_sass/scss/bulma";
 ```
 
+If you want to customise which bulma parts are included to minimise the end size of your css, you can use the below and simply uncomment the parts you want to include.
+
+```scss
+// Utilities
+@import "package:bulma_sass/scss/utilities/initial-variables";
+@import "package:bulma_sass/scss/utilities/functions";
+@import "package:bulma_sass/scss/utilities/derived-variables";
+@import "package:bulma_sass/scss/utilities/animations";
+@import "package:bulma_sass/scss/utilities/mixins";
+@import "package:bulma_sass/scss/utilities/controls";
+// Custom Variables
+
+// Base
+@import "package:bulma_sass/scss/base/minireset";
+@import "package:bulma_sass/scss/base/generic";
+@import "package:bulma_sass/scss/base/helpers";
+// Elements
+// @import "package:bulma_sass/scss/elements/box";
+// @import "package:bulma_sass/scss/elements/button";
+// @import "package:bulma_sass/scss/elements/container";
+// @import "package:bulma_sass/scss/elements/content";
+// @import "package:bulma_sass/scss/elements/form";
+// @import "package:bulma_sass/scss/elements/icon";
+// @import "package:bulma_sass/scss/elements/image";
+// @import "package:bulma_sass/scss/elements/notification";
+// @import "package:bulma_sass/scss/elements/progress";
+// @import "package:bulma_sass/scss/elements/table";
+// @import "package:bulma_sass/scss/elements/tag";
+// @import "package:bulma_sass/scss/elements/title";
+// @import "package:bulma_sass/scss/elements/other";
+// Components
+// @import "package:bulma_sass/scss/components/breadcrumb";
+// @import "package:bulma_sass/scss/components/card";
+// @import "package:bulma_sass/scss/components/dropdown";
+// @import "package:bulma_sass/scss/components/level";
+// @import "package:bulma_sass/scss/components/media";
+// @import "package:bulma_sass/scss/components/menu";
+// @import "package:bulma_sass/scss/components/message";
+// @import "package:bulma_sass/scss/components/modal";
+// @import "package:bulma_sass/scss/components/navbar";
+// @import "package:bulma_sass/scss/components/pagination";
+// @import "package:bulma_sass/scss/components/panel";
+// @import "package:bulma_sass/scss/components/tabs";
+// Grid
+@import "package:bulma_sass/scss/grid/columns";
+// @import "package:bulma_sass/scss/grid/tiles";
+// Layout
+// @import "package:bulma_sass/scss/layout/hero";
+// @import "package:bulma_sass/scss/layout/section";
+// @import "package:bulma_sass/scss/layout/footer";
+
+// Custom SCSS
+
+```
+
 ## Documentation
 
 Documentation for the Bulma framework can be found here [Bulma Documentation](https://bulma.io/documentation)
