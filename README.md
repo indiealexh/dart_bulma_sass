@@ -9,6 +9,7 @@ You can find basic example usage of the package over at [bulma_sass_example](htt
 ## Usage
 
 Add Sass and Builder runner to the project pubspec.yaml:
+
 ```yaml
 dev_dependencies:
   build_runner: ^0.7.10+1
@@ -16,6 +17,7 @@ dev_dependencies:
 ```
 
 Create a SCSS file and import bulma and edit any variable you need:
+
 ```scss
 // 1. Import the initial variables
 @import "package:bulma_sass/scss/utilities/initial-variables";
@@ -60,7 +62,7 @@ $colors: map-merge($colors, $addColors);
 @import "package:bulma_sass/scss/bulma";
 ```
 
-If you want to customise which bulma parts are included to minimise the end size of your css, you can use the below and simply uncomment the parts you want to include.
+Alternatively If you want to customize which bulma parts are included to minimize the end size of your css, you can use the below and simply uncomment the parts you want to include.
 
 ```scss
 // Utilities
@@ -126,6 +128,7 @@ Report problems with this package to [https://github.com/indiealexh/dart_bulma_s
 Report problems with the core framework to [https://github.com/jgthms/bulma](https://github.com/jgthms/bulma)
 
 ## Copyright and license
+
 Dart package is released under MIT license.
 
 Original Code copyright 2017 Jeremy Thomas and released under [the MIT license](https://github.com/jgthms/bulma/blob/master/LICENSE).
