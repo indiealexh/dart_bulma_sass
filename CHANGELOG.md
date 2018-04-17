@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.7.0
+
+- Update dart bulma_sass to bulma 0.7.0
+
 ## 0.6.2+1
 
 - Update .gitignore to exclude unwanted files
