@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.7.1
+
+- Update dart bulma_sass to bulma 0.7.1
+
 ## 0.7.0
 
 - Update dart bulma_sass to bulma 0.7.0
