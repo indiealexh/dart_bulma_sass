@@ -1,4 +1,7 @@
 # Changelog
+## 0.7.1+1
+
+- Update Pubspec to enable use on Dart 2
 
 ## 0.7.1
 

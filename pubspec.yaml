@@ -1,17 +1,14 @@
 name: bulma_sass
 description: Bulma flexbox CSS framework and its scss components
-version: 0.7.1
+version: 0.7.1+1
 homepage: https://github.com/indiealexh/dart_bulma_sass
 author: Alexander Haslam <alexander.haslam@reincarnadigital.com>
 
 environment:
-  sdk: '>=2.0.0-dev.3.0 <2.0.0'
-
-dependencies:
-  font_awesome: ^4.7.0
+  sdk: '>=2.0.0 <3.0.0'
 
 dev_dependencies:
-  build_runner: ^0.8.2+2
-  sass_builder: ^1.2.0
-  git: ^0.5.1
-  pub_semver: ^1.4.1
+  build_runner: '>=0.8.2'
+  sass_builder: '>=1.2.0'
+  git: '>=0.5.1'
+  pub_semver: '>=1.4.1'
