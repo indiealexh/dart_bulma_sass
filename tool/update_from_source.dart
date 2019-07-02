@@ -35,8 +35,7 @@ main() async {
   Directory workingSassDir = new Directory(workingDir.path + "\\sass");
   await fsCleanUpOps(workingSassDir);
   await tidyScssContents(workingSassDir);
-  await copyWorkingToCurrent(workingDir,currentDir);
-
+  await copyWorkingToCurrent(workingDir, currentDir);
 
   print("Cleaning up");
   await workingDir.delete(recursive: true);
@@ -50,7 +49,7 @@ Future copyWorkingToCurrent(Directory workingDir, Directory currentDir) async {
   List<FileSystemEntity> fileEntities = oldScssDir.listSync(recursive: true);
   List<File> files = new List<File>();
   fileEntities.forEach((FileSystemEntity fileSystemEntity) {
-    if(fileSystemEntity.statSync().type == FileSystemEntityType.FILE) {
+    if (fileSystemEntity.statSync().type == FileSystemEntityType.FILE) {
       files.add(new File(fileSystemEntity.path));
     }
   });
@@ -115,7 +114,7 @@ String pathToUnixPath(String path) {
 
 Future<GitDir> setupGit(Directory dir,
     [String gitRemote = 'https://github.com/jgthms/bulma.git']) async {
-  GitDir gitDir = await GitDir.init(dir);
+  GitDir gitDir = await GitDir.init(dir.uri.toFilePath());
   await gitDir.runCommand(['remote', 'add', 'origin', gitRemote]);
   await gitDir.runCommand(['fetch', '--all']);
   return gitDir;

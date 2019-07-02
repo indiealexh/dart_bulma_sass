@@ -25,19 +25,16 @@ $tag-delete-margin: 1px !default;
     margin-bottom: 1rem;
   }
 
-  &.has-addons {
-    .tag {
-      margin-right: 0;
+  // Sizes
+  &.are-medium {
+    .tag:not(.is-normal):not(.is-large) {
+      font-size: $size-normal;
+    }
+  }
 
-      &:not(:first-child) {
-        border-bottom-left-radius: 0;
-        border-top-left-radius: 0;
-      }
-
-      &:not(:last-child) {
-        border-bottom-right-radius: 0;
-        border-top-right-radius: 0;
-      }
+  &.are-large {
+    .tag:not(.is-normal):not(.is-medium) {
+      font-size: $size-medium;
     }
   }
 
@@ -60,6 +57,23 @@ $tag-delete-margin: 1px !default;
 
       &:not(:last-child) {
         margin-right: 0;
+      }
+    }
+  }
+
+  &.has-addons {
+    .tag {
+      margin-right: 0;
+
+      &:not(:first-child) {
+        margin-left: 0;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+      }
+
+      &:not(:last-child) {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
       }
     }
   }
@@ -96,6 +110,10 @@ $tag-delete-margin: 1px !default;
   }
 
   // Sizes
+  &.is-normal {
+    font-size: $size-small;
+  }
+
   &.is-medium {
     font-size: $size-normal;
   }

@@ -14,6 +14,8 @@ $navbar-item-active-color: $black !default;
 $navbar-item-active-background-color: transparent !default;
 $navbar-item-img-max-height: 1.75rem !default;
 
+$navbar-burger-color: $navbar-item-color !default;
+
 $navbar-tab-hover-background-color: transparent !default;
 $navbar-tab-hover-border-bottom-color: $link !default;
 $navbar-tab-active-color: $link !default;
@@ -41,6 +43,8 @@ $navbar-divider-background-color: $background !default;
 $navbar-divider-height: 2px !default;
 
 $navbar-bottom-box-shadow-size: 0 -2px 0 0 !default;
+
+$navbar-breakpoint: $desktop !default;
 
 @mixin navbar-fixed {
   left: 0;
@@ -71,6 +75,7 @@ $navbar-bottom-box-shadow-size: 0 -2px 0 0 !default;
 
         & > a.navbar-item,
         .navbar-link {
+          &:focus,
           &:hover,
           &.is-active {
             background-color: darken($color, 5%);
@@ -85,7 +90,11 @@ $navbar-bottom-box-shadow-size: 0 -2px 0 0 !default;
         }
       }
 
-      @include desktop {
+      .navbar-burger {
+        color: $color-invert;
+      }
+
+      @include from($navbar-breakpoint) {
         .navbar-start,
         .navbar-end {
           & > .navbar-item,
@@ -95,6 +104,7 @@ $navbar-bottom-box-shadow-size: 0 -2px 0 0 !default;
 
           & > a.navbar-item,
           .navbar-link {
+            &:focus,
             &:hover,
             &.is-active {
               background-color: darken($color, 5%);
@@ -109,6 +119,7 @@ $navbar-bottom-box-shadow-size: 0 -2px 0 0 !default;
           }
         }
 
+        .navbar-item.has-dropdown:focus .navbar-link,
         .navbar-item.has-dropdown:hover .navbar-link,
         .navbar-item.has-dropdown.is-active .navbar-link {
           background-color: darken($color, 5%);
@@ -177,6 +188,7 @@ body {
 
 .navbar-brand {
   a.navbar-item {
+    &:focus,
     &:hover {
       background-color: transparent;
     }
@@ -192,6 +204,8 @@ body {
 }
 
 .navbar-burger {
+  color: $navbar-burger-color;
+
   @include hamburger($navbar-height);
 
   margin-left: auto;
@@ -221,6 +235,8 @@ a.navbar-item,
 .navbar-link {
   cursor: pointer;
 
+  &:focus,
+  &:focus-within,
   &:hover,
   &.is-active {
     background-color: $navbar-item-hover-background-color;
@@ -251,6 +267,7 @@ a.navbar-item,
     min-height: $navbar-height;
     padding-bottom: calc(0.5rem - 1px);
 
+    &:focus,
     &:hover {
       background-color: $navbar-tab-hover-background-color;
       border-bottom-color: $navbar-tab-hover-border-bottom-color;
@@ -272,12 +289,13 @@ a.navbar-item,
   flex-shrink: 1;
 }
 
-.navbar-link {
+.navbar-link:not(.is-arrowless) {
   padding-right: 2.5em;
 
   &::after {
-    @include arrow($navbar-dropdown-arrow);
+    @extend %arrow;
 
+    border-color: $navbar-dropdown-arrow;
     margin-top: -0.375em;
     right: 1.125em;
   }
@@ -302,7 +320,7 @@ a.navbar-item,
   margin: 0.5rem 0;
 }
 
-@include touch {
+@include until($navbar-breakpoint) {
   .navbar > .container {
     display: block;
   }
@@ -374,7 +392,7 @@ a.navbar-item,
 }
 
 
-@include desktop {
+@include from($navbar-breakpoint) {
   .navbar,
   .navbar-menu,
   .navbar-start,
@@ -403,6 +421,7 @@ a.navbar-item,
     &.is-transparent {
       a.navbar-item,
       .navbar-link {
+        &:focus,
         &:hover,
         &.is-active {
           background-color: transparent !important;
@@ -411,6 +430,8 @@ a.navbar-item,
 
       .navbar-item.has-dropdown {
         &.is-active,
+        &.is-hoverable:focus,
+        &.is-hoverable:focus-within,
         &.is-hoverable:hover {
           .navbar-link {
             background-color: transparent !important;
@@ -420,6 +441,7 @@ a.navbar-item,
 
       .navbar-dropdown {
         a.navbar-item {
+          &:focus,
           &:hover {
             background-color: $navbar-dropdown-item-hover-background-color;
             color: $navbar-dropdown-item-hover-color;
@@ -467,6 +489,8 @@ a.navbar-item,
     }
 
     &.is-active,
+    &.is-hoverable:focus,
+    &.is-hoverable:focus-within,
     &.is-hoverable:hover {
       .navbar-dropdown {
         display: block;
@@ -518,6 +542,7 @@ a.navbar-item,
     a.navbar-item {
       padding-right: 3rem;
 
+      &:focus,
       &:hover {
         background-color: $navbar-dropdown-item-hover-background-color;
         color: $navbar-dropdown-item-hover-color;
@@ -556,11 +581,11 @@ a.navbar-item,
   .navbar > .container,
   .container > .navbar {
     .navbar-brand {
-      margin-left: -1rem;
+      margin-left: -0.75rem;
     }
 
     .navbar-menu {
-      margin-right: -1rem;
+      margin-right: -0.75rem;
     }
   }
 
@@ -610,17 +635,27 @@ a.navbar-item,
       color: $navbar-item-active-color;
     }
 
-    &.is-active:not(:hover) {
+    &.is-active:not(:focus):not(:hover) {
       background-color: $navbar-item-active-background-color;
     }
   }
 
   .navbar-item.has-dropdown {
+    &:focus,
     &:hover,
     &.is-active {
       .navbar-link {
         background-color: $navbar-item-hover-background-color;
       }
     }
+  }
+}
+
+
+// Combination
+
+.hero {
+  &.is-fullheight-with-navbar {
+    min-height: calc(100vh - #{$navbar-height});
   }
 }

@@ -97,7 +97,7 @@ $column-gap: 0.75rem !default;
     margin-left: 80%;
   }
 
-  @for $i from 1 through 12 {
+  @for $i from 0 through 12 {
     .columns.is-mobile > &.is-#{$i} {
       flex: none;
       width: percentage($i / 12);
@@ -199,7 +199,7 @@ $column-gap: 0.75rem !default;
       margin-left: 80%;
     }
 
-    @for $i from 1 through 12 {
+    @for $i from 0 through 12 {
       &.is-#{$i}-mobile {
         flex: none;
         width: percentage($i / 12);
@@ -323,7 +323,7 @@ $column-gap: 0.75rem !default;
       margin-left: 80%;
     }
 
-    @for $i from 1 through 12 {
+    @for $i from 0 through 12 {
       &.is-#{$i},
       &.is-#{$i}-tablet {
         flex: none;
@@ -429,7 +429,7 @@ $column-gap: 0.75rem !default;
       margin-left: 80%;
     }
 
-    @for $i from 1 through 12 {
+    @for $i from 0 through 12 {
       &.is-#{$i}-touch {
         flex: none;
         width: percentage($i / 12);
@@ -533,7 +533,7 @@ $column-gap: 0.75rem !default;
       margin-left: 80%;
     }
 
-    @for $i from 1 through 12 {
+    @for $i from 0 through 12 {
       &.is-#{$i}-desktop {
         flex: none;
         width: percentage($i / 12);
@@ -637,7 +637,7 @@ $column-gap: 0.75rem !default;
       margin-left: 80%;
     }
 
-    @for $i from 1 through 12 {
+    @for $i from 0 through 12 {
       &.is-#{$i}-widescreen {
         flex: none;
         width: percentage($i / 12);
@@ -741,7 +741,7 @@ $column-gap: 0.75rem !default;
       margin-left: 80%;
     }
 
-    @for $i from 1 through 12 {
+    @for $i from 0 through 12 {
       &.is-#{$i}-fullhd {
         flex: none;
         width: percentage($i / 12);
@@ -833,6 +833,68 @@ $column-gap: 0.75rem !default;
     @for $i from 0 through 8 {
       &.is-#{$i} {
         --columnGap: #{$i * 0.25rem};
+      }
+
+      @include mobile {
+        &.is-#{$i}-mobile {
+          --columnGap: #{$i * 0.25rem};
+        }
+      }
+
+
+      @include tablet {
+        &.is-#{$i}-tablet {
+          --columnGap: #{$i * 0.25rem};
+        }
+      }
+
+
+      @include tablet-only {
+        &.is-#{$i}-tablet-only {
+          --columnGap: #{$i * 0.25rem};
+        }
+      }
+
+
+      @include touch {
+        &.is-#{$i}-touch {
+          --columnGap: #{$i * 0.25rem};
+        }
+      }
+
+
+      @include desktop {
+        &.is-#{$i}-desktop {
+          --columnGap: #{$i * 0.25rem};
+        }
+      }
+
+
+      @include desktop-only {
+        &.is-#{$i}-desktop-only {
+          --columnGap: #{$i * 0.25rem};
+        }
+      }
+
+
+      @include widescreen {
+        &.is-#{$i}-widescreen {
+          --columnGap: #{$i * 0.25rem};
+        }
+      }
+
+
+      @include widescreen-only {
+        &.is-#{$i}-widescreen-only {
+          --columnGap: #{$i * 0.25rem};
+        }
+      }
+
+
+      @include fullhd {
+        &.is-#{$i}-fullhd {
+          --columnGap: #{$i * 0.25rem};
+        }
       }
     }
   }
