@@ -1,4 +1,8 @@
 # Changelog
+## 0.7.5
+- Update dart bulma_sass to bulma 0.7.5
+- Upgrade tools to use latest packages
+
 ## 0.7.1+1
 
 - Update Pubspec to enable use on Dart 2

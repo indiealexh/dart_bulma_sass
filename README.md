@@ -12,8 +12,8 @@ Add Sass and Builder runner to the project pubspec.yaml:
 
 ```yaml
 dev_dependencies:
-  build_runner: ^0.8.2+2
-  sass_builder: ^1.2.0
+  sass_builder: ^2.1.3
+  build_runner: ^1.0.0
 ```
 
 Create a SCSS file and import bulma and edit any variable you need:
