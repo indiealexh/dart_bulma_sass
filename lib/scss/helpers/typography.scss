@@ -8,25 +8,25 @@
         }
     }
 }
-@include typography-size() {
-    mobile {
-        @include typography-size("mobile");
-    }
-    tablet {
-        @include typography-size("tablet");
-    }
-    touch {
-        @include typography-size("touch");
-    }
-    desktop {
-        @include typography-size("desktop");
-    }
-    widescreen {
-        @include typography-size("widescreen");
-    }
-    fullhd {
-        @include typography-size("fullhd");
-    }
+@include typography-size();
+
++ mobile {
+    @include typography-size("mobile");
+}
++ tablet {
+    @include typography-size("tablet");
+}
++ touch {
+    @include typography-size("touch");
+}
++ desktop {
+    @include typography-size("desktop");
+}
++ widescreen {
+    @include typography-size("widescreen");
+}
++ fullhd {
+    @include typography-size("fullhd");
 }
 
 $alignments: (
