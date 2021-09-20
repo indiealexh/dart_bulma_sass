@@ -1,13 +1,15 @@
+@import "derived-variables";
+
 $control-radius: $radius !default;
 $control-radius-small: $radius-small !default;
 
 $control-border-width: 1px !default;
 
-$control-height: 2.25em !default;
+$control-height: 2.5em !default;
 $control-line-height: 1.5 !default;
 
-$control-padding-vertical: calc(0.375em - #{$control-border-width}) !default;
-$control-padding-horizontal: calc(0.625em - #{$control-border-width}) !default;
+$control-padding-vertical: calc(0.5em - #{$control-border-width}) !default;
+$control-padding-horizontal: calc(0.75em - #{$control-border-width}) !default;
 
 @mixin control {
   -moz-appearance: none;
@@ -27,7 +29,6 @@ $control-padding-horizontal: calc(0.625em - #{$control-border-width}) !default;
   padding-top: $control-padding-vertical;
   position: relative;
   vertical-align: top;
-
   // States
   &:focus,
   &.is-focused,
@@ -35,27 +36,19 @@ $control-padding-horizontal: calc(0.625em - #{$control-border-width}) !default;
   &.is-active {
     outline: none;
   }
-
   &[disabled],
   fieldset[disabled] & {
     cursor: not-allowed;
   }
+  // The controls sizes use mixins so they can be used at different breakpoints
 }
-
-%control {
-  @include control;
-}
-
-// The controls sizes use mixins so they can be used at different breakpoints
 @mixin control-small {
   border-radius: $control-radius-small;
   font-size: $size-small;
 }
-
 @mixin control-medium {
   font-size: $size-medium;
 }
-
 @mixin control-large {
   font-size: $size-large;
 }

@@ -1,3 +1,5 @@
+@import "../utilities/mixins";
+
 $breadcrumb-item-color: $link !default;
 $breadcrumb-item-hover-color: $link-hover !default;
 $breadcrumb-item-active-color: $text-strong !default;
@@ -5,36 +7,29 @@ $breadcrumb-item-active-color: $text-strong !default;
 $breadcrumb-item-padding-vertical: 0 !default;
 $breadcrumb-item-padding-horizontal: 0.75em !default;
 
-$breadcrumb-item-separator-color: $grey-light !default;
+$breadcrumb-item-separator-color: $border-hover !default;
 
 .breadcrumb {
-  @extend %block;
-
-  @extend %unselectable;
-
+  @extend block;
+  @extend unselectable;
   font-size: $size-normal;
   white-space: nowrap;
-
   a {
     align-items: center;
     color: $breadcrumb-item-color;
     display: flex;
     justify-content: center;
     padding: $breadcrumb-item-padding-vertical $breadcrumb-item-padding-horizontal;
-
     &:hover {
       color: $breadcrumb-item-hover-color;
     }
   }
-
   li {
     align-items: center;
     display: flex;
-
     &:first-child a {
-      padding-left: 0;
+      @include ltr-property("padding", 0, false);
     }
-
     &.is-active {
       a {
         color: $breadcrumb-item-active-color;
@@ -42,13 +37,11 @@ $breadcrumb-item-separator-color: $grey-light !default;
         pointer-events: none;
       }
     }
-
     & + li::before {
       color: $breadcrumb-item-separator-color;
-      content: "/";
+      content: "\0002f";
     }
   }
-
   ul,
   ol {
     align-items: flex-start;
@@ -56,67 +49,53 @@ $breadcrumb-item-separator-color: $grey-light !default;
     flex-wrap: wrap;
     justify-content: flex-start;
   }
-
   .icon {
     &:first-child {
-      margin-right: 0.5em;
+      @include ltr-property("margin", 0.5em);
     }
-
     &:last-child {
-      margin-left: 0.5em;
-    }
+      @include ltr-property("margin", 0.5em, false);
+    } // Alignment
   }
-
-  // Alignment
   &.is-centered {
     ol,
     ul {
       justify-content: center;
     }
   }
-
   &.is-right {
     ol,
     ul {
       justify-content: flex-end;
-    }
+    } // Sizes
   }
-
-  // Sizes
   &.is-small {
     font-size: $size-small;
   }
-
   &.is-medium {
     font-size: $size-medium;
   }
-
   &.is-large {
     font-size: $size-large;
-  }
-
-  // Styles
+  } // Styles
   &.has-arrow-separator {
     li + li::before {
-      content: "→";
+      content: "\02192";
     }
   }
-
   &.has-bullet-separator {
     li + li::before {
-      content: "•";
+      content: "\02022";
     }
   }
-
   &.has-dot-separator {
     li + li::before {
-      content: "·";
+      content: "\000b7";
     }
   }
-
   &.has-succeeds-separator {
     li + li::before {
-      content: "≻";
+      content: "\0227B";
     }
   }
 }

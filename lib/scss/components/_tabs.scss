@@ -1,3 +1,5 @@
+@import "../utilities/mixins";
+
 $tabs-border-bottom-color: $border !default;
 $tabs-border-bottom-style: solid !default;
 $tabs-border-bottom-width: 1px !default;
@@ -12,7 +14,7 @@ $tabs-boxed-link-radius: $radius !default;
 $tabs-boxed-link-hover-background-color: $background !default;
 $tabs-boxed-link-hover-border-bottom-color: $border !default;
 
-$tabs-boxed-link-active-background-color: $white !default;
+$tabs-boxed-link-active-background-color: $scheme-main !default;
 $tabs-boxed-link-active-border-color: $border !default;
 $tabs-boxed-link-active-border-bottom-color: transparent !default;
 
@@ -27,12 +29,9 @@ $tabs-toggle-link-active-border-color: $link !default;
 $tabs-toggle-link-active-color: $link-invert !default;
 
 .tabs {
-  @extend %block;
-
+  @extend block;
   @include overflow-touch;
-
-  @extend %unselectable;
-
+  @extend unselectable;
   align-items: stretch;
   display: flex;
   font-size: $size-normal;
@@ -40,7 +39,6 @@ $tabs-toggle-link-active-color: $link-invert !default;
   overflow: hidden;
   overflow-x: auto;
   white-space: nowrap;
-
   a {
     align-items: center;
     border-bottom-color: $tabs-border-bottom-color;
@@ -52,16 +50,13 @@ $tabs-toggle-link-active-color: $link-invert !default;
     margin-bottom: -#{$tabs-border-bottom-width};
     padding: $tabs-link-padding;
     vertical-align: top;
-
     &:hover {
       border-bottom-color: $tabs-link-hover-border-bottom-color;
       color: $tabs-link-hover-color;
     }
   }
-
   li {
     display: block;
-
     &.is-active {
       a {
         border-bottom-color: $tabs-link-active-border-bottom-color;
@@ -69,7 +64,6 @@ $tabs-toggle-link-active-color: $link-invert !default;
       }
     }
   }
-
   ul {
     align-items: center;
     border-bottom-color: $tabs-border-bottom-color;
@@ -79,59 +73,52 @@ $tabs-toggle-link-active-color: $link-invert !default;
     flex-grow: 1;
     flex-shrink: 0;
     justify-content: flex-start;
-
     &.is-left {
       padding-right: 0.75em;
     }
-
     &.is-center {
       flex: none;
       justify-content: center;
       padding-left: 0.75em;
       padding-right: 0.75em;
     }
-
     &.is-right {
       justify-content: flex-end;
       padding-left: 0.75em;
     }
   }
-
   .icon {
     &:first-child {
-      margin-right: 0.5em;
+      @include ltr-property("margin", 0.5em);
     }
-
     &:last-child {
-      margin-left: 0.5em;
-    }
+      @include ltr-property("margin", 0.5em, false);
+    } // Alignment
   }
-
-  // Alignment
   &.is-centered {
     ul {
       justify-content: center;
     }
   }
-
   &.is-right {
     ul {
       justify-content: flex-end;
-    }
+    } // Styles
   }
-
-  // Styles
   &.is-boxed {
     a {
       border: 1px solid transparent;
-      border-radius: $tabs-boxed-link-radius $tabs-boxed-link-radius 0 0;
-
+      @include ltr {
+        border-radius: $tabs-boxed-link-radius $tabs-boxed-link-radius 0 0;
+      }
+      @include rtl {
+        border-radius: 0 0 $tabs-boxed-link-radius $tabs-boxed-link-radius;
+      }
       &:hover {
         background-color: $tabs-boxed-link-hover-background-color;
         border-bottom-color: $tabs-boxed-link-hover-border-bottom-color;
       }
     }
-
     li {
       &.is-active {
         a {
@@ -142,14 +129,12 @@ $tabs-toggle-link-active-color: $link-invert !default;
       }
     }
   }
-
   &.is-fullwidth {
     li {
       flex-grow: 1;
       flex-shrink: 0;
     }
   }
-
   &.is-toggle {
     a {
       border-color: $tabs-toggle-link-border-color;
@@ -157,27 +142,36 @@ $tabs-toggle-link-active-color: $link-invert !default;
       border-width: $tabs-toggle-link-border-width;
       margin-bottom: 0;
       position: relative;
-
       &:hover {
         background-color: $tabs-toggle-link-hover-background-color;
         border-color: $tabs-toggle-link-hover-border-color;
         z-index: 2;
       }
     }
-
     li {
       & + li {
-        margin-left: -#{$tabs-toggle-link-border-width};
+        @include ltr-property("margin", -#{$tabs-toggle-link-border-width}, false);
       }
-
       &:first-child a {
-        border-radius: $tabs-toggle-link-radius 0 0 $tabs-toggle-link-radius;
+        @include ltr {
+          border-top-left-radius: $tabs-toggle-link-radius;
+          border-bottom-left-radius: $tabs-toggle-link-radius;
+        }
+        @include rtl {
+          border-top-right-radius: $tabs-toggle-link-radius;
+          border-bottom-right-radius: $tabs-toggle-link-radius;
+        }
       }
-
       &:last-child a {
-        border-radius: 0 $tabs-toggle-link-radius $tabs-toggle-link-radius 0;
+        @include ltr {
+          border-top-right-radius: $tabs-toggle-link-radius;
+          border-bottom-right-radius: $tabs-toggle-link-radius;
+        }
+        @include rtl {
+          border-top-left-radius: $tabs-toggle-link-radius;
+          border-bottom-left-radius: $tabs-toggle-link-radius;
+        }
       }
-
       &.is-active {
         a {
           background-color: $tabs-toggle-link-active-background-color;
@@ -187,37 +181,44 @@ $tabs-toggle-link-active-color: $link-invert !default;
         }
       }
     }
-
     ul {
       border-bottom: none;
     }
-
     &.is-toggle-rounded {
       li {
         &:first-child a {
-          border-bottom-left-radius: $radius-rounded;
-          border-top-left-radius: $radius-rounded;
-          padding-left: 1.25em;
+          @include ltr {
+            border-bottom-left-radius: $radius-rounded;
+            border-top-left-radius: $radius-rounded;
+            padding-left: 1.25em;
+          }
+          @include rtl {
+            border-bottom-right-radius: $radius-rounded;
+            border-top-right-radius: $radius-rounded;
+            padding-right: 1.25em;
+          }
         }
-
         &:last-child a {
-          border-bottom-right-radius: $radius-rounded;
-          border-top-right-radius: $radius-rounded;
-          padding-right: 1.25em;
+          @include ltr {
+            border-bottom-right-radius: $radius-rounded;
+            border-top-right-radius: $radius-rounded;
+            padding-right: 1.25em;
+          }
+          @include rtl {
+            border-bottom-left-radius: $radius-rounded;
+            border-top-left-radius: $radius-rounded;
+            padding-left: 1.25em;
+          } // Sizes
         }
       }
     }
   }
-
-  // Sizes
   &.is-small {
     font-size: $size-small;
   }
-
   &.is-medium {
     font-size: $size-medium;
   }
-
   &.is-large {
     font-size: $size-large;
   }
