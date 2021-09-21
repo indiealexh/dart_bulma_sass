@@ -8,24 +8,28 @@
         }
     }
 }
-@include typography-size();
 
-+ mobile {
+@include mobile {
     @include typography-size("mobile");
 }
-+ tablet {
+
+@include tablet {
     @include typography-size("tablet");
 }
-+ touch {
+
+@include touch {
     @include typography-size("touch");
 }
-+ desktop {
+
+@include desktop {
     @include typography-size("desktop");
 }
-+ widescreen {
+
+@include widescreen {
     @include typography-size("widescreen");
 }
-+ fullhd {
+
+@include fullhd {
     @include typography-size("fullhd");
 }
 
