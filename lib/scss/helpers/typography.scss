@@ -9,6 +9,8 @@
     }
 }
 
+@include typography-size();
+
 @include mobile {
     @include typography-size("mobile");
 }

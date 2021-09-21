@@ -65,47 +65,47 @@ $displays: "block" "flex" "inline" "inline-block" "inline-flex";
     white-space: nowrap !important;
     width: 0.01em !important;
 }
-+ mobile {
+@include mobile {
     .is-hidden-mobile {
         display: none !important;
     }
 }
-+ tablet {
+@include tablet {
     .is-hidden-tablet {
         display: none !important;
     }
 }
-+ tablet-only {
+@include tablet-only {
     .is-hidden-tablet-only {
         display: none !important;
     }
 }
-+ touch {
+@include touch {
     .is-hidden-touch {
         display: none !important;
     }
 }
-+ desktop {
+@include desktop {
     .is-hidden-desktop {
         display: none !important;
     }
 }
-+ desktop-only {
+@include desktop-only {
     .is-hidden-desktop-only {
         display: none !important;
     }
 }
-+ widescreen {
+@include widescreen {
     .is-hidden-widescreen {
         display: none !important;
     }
 }
-+ widescreen-only {
+@include widescreen-only {
     .is-hidden-widescreen-only {
         display: none !important;
     }
 }
-+ fullhd {
+@include fullhd {
     .is-hidden-fullhd {
         display: none !important;
     }
@@ -113,47 +113,47 @@ $displays: "block" "flex" "inline" "inline-block" "inline-flex";
 .is-invisible {
     visibility: hidden !important;
 }
-+ mobile {
+@include mobile {
     .is-invisible-mobile {
         visibility: hidden !important;
     }
 }
-+ tablet {
+@include tablet {
     .is-invisible-tablet {
         visibility: hidden !important;
     }
 }
-+ tablet-only {
+@include tablet-only {
     .is-invisible-tablet-only {
         visibility: hidden !important;
     }
 }
-+ touch {
+@include touch {
     .is-invisible-touch {
         visibility: hidden !important;
     }
 }
-+ desktop {
+@include desktop {
     .is-invisible-desktop {
         visibility: hidden !important;
     }
 }
-+ desktop-only {
+@include desktop-only {
     .is-invisible-desktop-only {
         visibility: hidden !important;
     }
 }
-+ widescreen {
+@include widescreen {
     .is-invisible-widescreen {
         visibility: hidden !important;
     }
 }
-+ widescreen-only {
+@include widescreen-only {
     .is-invisible-widescreen-only {
         visibility: hidden !important;
     }
 }
-+ fullhd {
+@include fullhd {
     .is-invisible-fullhd {
         visibility: hidden !important;
     }

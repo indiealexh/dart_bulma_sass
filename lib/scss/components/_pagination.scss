@@ -128,7 +128,7 @@ $pagination-shadow-inset: inset 0 1px 2px rgba($scheme-invert, 0.2) !default;
     list-style: none;
   }
 }
-+ mobile {
+@include mobile {
   .pagination {
     flex-wrap: wrap;
   }
@@ -144,7 +144,7 @@ $pagination-shadow-inset: inset 0 1px 2px rgba($scheme-invert, 0.2) !default;
     }
   }
 }
-+ tablet {
+@include tablet {
   .pagination-list {
     flex-grow: 1;
     flex-shrink: 1;

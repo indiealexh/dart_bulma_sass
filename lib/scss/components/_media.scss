@@ -61,7 +61,7 @@ $media-level-2-spacing: 0.5rem !default;
   flex-shrink: 1;
   text-align: inherit;
 }
-+ mobile {
+@include mobile {
   .media-content {
     overflow-x: auto;
   }
