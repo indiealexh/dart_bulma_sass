@@ -1,4 +1,4 @@
-/*! minireset.css v0.0.4 | MIT License | github.com/jgthms/minireset.css */
+/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
 // Blocks
 html,
 body,
@@ -26,7 +26,6 @@ h6 {
   margin: 0;
   padding: 0;
 }
-
 // Headings
 h1,
 h2,
@@ -37,12 +36,10 @@ h6 {
   font-size: 100%;
   font-weight: normal;
 }
-
 // List
 ul {
   list-style: none;
 }
-
 // Form
 button,
 input,
@@ -50,50 +47,36 @@ select,
 textarea {
   margin: 0;
 }
-
 // Box sizing
 html {
   box-sizing: border-box;
 }
-
 * {
   &,
   &::before,
   &::after {
     box-sizing: inherit;
   }
+  // Media
 }
-
-// Media
 img,
-embed,
-iframe,
-object,
 video {
   height: auto;
   max-width: 100%;
 }
-
-audio {
-  max-width: 100%;
-}
-
 // Iframe
 iframe {
   border: 0;
 }
-
 // Table
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
 td,
 th {
   padding: 0;
-
   &:not([align]) {
-    text-align: left;
+    text-align: inherit;
   }
 }
